@@ -23,7 +23,7 @@ const createWorkspaceAndChildren = async (patch: Partial<Workspace>) => {
 };
 
 const actuallyCreate = (patch: Partial<Workspace>, onCreate?: OnWorkspaceCreateCallback) => {
-  return async (dispatch) => {
+  return async dispatch => {
     const workspace = await createWorkspaceAndChildren(patch);
 
     if (onCreate) {
@@ -73,9 +73,9 @@ export const createWorkspace = ({ scope, onCreate }: {
 
 export const activateWorkspace = (workspace: Workspace) => {
   return async (dispatch: Dispatch, getState: () => RootState) => {
-    
+
     const activeActivity = selectActiveActivity(getState()) || undefined;
-    
+
     // Activate the correct space
     const nextSpaceId = workspace.parentId;
     dispatch(setActiveSpace(nextSpaceId));
@@ -83,7 +83,7 @@ export const activateWorkspace = (workspace: Workspace) => {
     // Activate the correct workspace
     const nextWorkspaceId = workspace._id;
     dispatch(setActiveWorkspace(nextWorkspaceId));
-    
+
     // Activate the correct activity
     if (isCollection(workspace) && isCollectionActivity(activeActivity)) {
       // we are in a collection, and our active activity is a collection activity

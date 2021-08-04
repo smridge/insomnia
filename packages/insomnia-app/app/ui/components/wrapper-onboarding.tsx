@@ -164,7 +164,7 @@ class WrapperOnboarding extends PureComponent<Props, State> {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   const bound = bindActionCreators({
     importFile,
     importUri,

@@ -392,7 +392,7 @@ class WrapperHome extends PureComponent<Props, State> {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   const bound = bindActionCreators({
     createWorkspace,
     cloneGitRepository,
